@@ -7,6 +7,8 @@
  *make sure you have python 3.8 or higher installed*
 
 The code should run in terminal and prouce the following result
-![Sample Output](./images/sample_output.png)
+![Sample Output](/images/sample_output.png)
 
 
+
+I'm still thinking about how to implement this solution with SQL... it keeps me up at night
