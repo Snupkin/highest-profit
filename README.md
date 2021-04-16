@@ -7,7 +7,7 @@
  *make sure you have python 3.8 or higher installed*
 
 The code should run in terminal and prouce the following result
-![Sample Output](https://github.com/Snupkin/highest-profit/tree/main/images/sample_output.PNG)
+![Sample Output Image](https://github.com/Snupkin/highest-profit/tree/main/images/sample_output.PNG)
 
 
 
