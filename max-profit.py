@@ -1,3 +1,6 @@
+# Author: Oran Avivi
+# Written: April 2021
+
 from os import path # to cheack if directories exist
 from operator import itemgetter # to sort the list
 import numpy as np # numerical operation library
