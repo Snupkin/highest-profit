@@ -1,5 +1,7 @@
 # Author: Oran Avivi
 # Written: April 2021
+# Main purpose of this code is to analyse CSV data and produce meaningful analysis
+# Main tasks accomplished: Determining data size, filtering invalid data, sorting data, displaying results.
 
 from os import path # to cheack if directories exist
 from operator import itemgetter # to sort the list
@@ -17,13 +19,13 @@ else:
 # row calculator - total/valid row calculator
 with open('data.csv') as datafile: # with the file name 'data.csv', new line delimiter is ''
     datareader = csv.reader(datafile, delimiter=',') # create a data reader for data.csv. variables delimitted by ',' 
-    datawriter = csv.writer(datafile, delimiter=',') # create a data wirter for data.csv
     
     validrows = 0 # declare initial number of rows with valid profits
     totalrows = 0 # declare initial number of valid and invalid rows
+    columns = 0 # declare initial known number or columns
+
     validrowvalues = [] # declare array to store invalid profit values
     columnnames = [] # declare empy array to store column names
-    columns = 0 # declare initial known number or columns
     rowdataobj = {} # initialize data dictionary to be exported to json
 
     jsondata.write('{\n "validprofitdata": [\n  ') # format start of data2.json file where we export data
@@ -70,4 +72,3 @@ sortedprofits = sorted(validrowvalues, key=lambda x: float(x[columns - 1]), reve
 print("The 20 Highest Profiting Companies are:") 
 for l in range(20): # for loop iterates over first (top) 20 values
     print(f"{l + 1}. {sortedprofits[l]}\n") # score and print each company
-
