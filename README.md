@@ -85,7 +85,7 @@ for l in range(20): # for loop iterates over first (top) 20 values
 ```
 
 ## Intro
-The code ***wasn't*** too complicated with perhaps the exception of a lamda function. After revising the code to output proper JSON syntax, I had to fix a trailing comma issue as there was a syntax issue when appending dividing commas between data entries on every line.
+The code __*wasn't*__ too complicated with perhaps the exception of a lamda function. After revising the code to output proper JSON syntax, I had to fix a trailing comma issue as there was a syntax issue when appending dividing commas between data entries on every line.
 
 In essence: this code starts by opening the data.csv file, creating a reader to peruse the file, and creating a for loop to index over each row. 
 On the first iteration of the loop, it determines the number of columns by counting the number of titles.
@@ -124,20 +124,26 @@ this helps the reader know what the file is supposed to accomplish
 *52-64* pretty much exactly like the else if, but preceeds each json output line with a comma to separate the objects in the json array
 iterates over entire data set trys to convert the last index of each row (the profit values) to a float value.
 only main difference is the preceeding comma in front of every line. I tried implementing simply and if and else method, but i ended up with trailing commas which caused a format error in the data2.json file. Were I to re-write the code, I would change the slmost copy-pasted elif/else try/except methods and implement them as a function, which would make the script more efficient, and easier to generalize. 
-*65*
+*65* the closing syntax for a json list of objects
 
-The first 2 print lines (67/68) containing the total number of rows and the number of rows with valid profit lines, believed to be
+*67-68*The first 2 print lines: 
+1. the total number of rows 
+2. the number of rows with valid profit lines
+believed to be:
 ![Total company rows && Total valid profit rows](https://github.com/Snupkin/highest-profit/tree/main/images/first_two_outputs.PNG)
 
-Finally, checks if a data2.json file exists (code outputs it) and if so does a write to the file. Otherwise it creates a new file with the name 'data2.json'
-It then dumps/converts the data from python objects to json file formats.
+### Sort
+__*71*__ One of the main advantages of python is the plethora of libraries and methods it aleady has implemented. While I could have coded a multi-line sorting algorithm, I decided to implement pythons built in sorting system. Using this with an in-line lamda function sorts the entire valid data set in 1 line. This was very useful as the data is essentially a list of lists (matrix), so hardcoding a sorting algorithm such as bucket sort/quick sort would be more time intensive on the developer with minor performance gains on a data size of ~25k^2 = ~625 million computations. On a standard 2ghz cpu this is done in a fraction of a second.
+sorts the data based on the 4th index of each row (the profit) in descending order from highest to lowest. 
+*72-74* prints the first 20 results of line 71, satisfying the 3rd and final part of the challenge
+3. outputs valid data to a json file named "data2.json"
 
-The companies profits are sorted based on the 4th index (starting from 0) of each row. thus need to compare values and sort.
-Python has a built in sorting dependency that uses inline lambda functions. This was very useful as the data is essentially a list of lists (matrix), so hardcoding a sorting algorithm such as bucket sort/quick sort would be more time intensive on the developer with minor performance gains on a data size of ~25k^2 = ~625 million computations. On a standard 2ghz cpu this is done in a fraction of a second.
 
-Were the data different, a more omptimized sorting algorithm can be used. 
-The valid profit conditional only accounts for non-integer characters. were the data formatted differently (hexadecimal, complex, exponents, etc...) this code may not be suitable
+Were the data different, a more omptimized sorting algorithm could be implemented, depending on data size and format. 
+The valid profit conditional only accounts for non-integer characters. were the data formatted differently (hexadecimal, complex, exponents, etc...) this code may not be suitable, however, this would presumably be made known to us, and would still filter all profits not in integer/decimal notation
 
-I'm uncertain what the purpose of exporting to a .json file is, but I was unsure how to fix the formatting issues in data2.json. All of the information should be there, but the conversion from a python nested list to .json didnt seem to work as expected. I would definitely devise a more refined implementation given more time and a more specific description regarding the functionality of the .json file. (Currently, I have all of the data there, but unsure if the .json file is functional)
+I managed to fix the .json file output. It now produces a json object containing a list of objects. 
+Along the way I had some fun and made some minor functional changes.
+
 
 I'm still thinking about how to implement this solution with SQL... it keeps me up at night
