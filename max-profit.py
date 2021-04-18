@@ -65,6 +65,7 @@ with open('data.csv') as datafile: # with the file name 'data.csv', new line del
 print("There are " + str(totalrows) + " rows of data in the data.csv file.\nThis includes the first line containing column titles.") # println command to display number of rows
 print(f"There are {validrows} rows with valid profit values (Either integer or decimal values)") # print number of valid lines
 
+# sorting the profits was is done using an inline lambda function and pythons internal sorting methods 
 sortedprofits = sorted(validrowvalues, key=lambda x: float(x[columns - 1]), reverse=True) # use pythons built in sorting methods along with a lambda function. then sort in descending order
 print("The 20 Highest Profiting Companies are:") 
 for l in range(20): # for loop iterates over first (top) 20 values

@@ -83,12 +83,13 @@ for l in range(20): # for loop iterates over first (top) 20 values
     print(f"{l + 1}. {sortedprofits[l]}\n") # score and print each company
 ```
 
-The code isn't too complicated with perhaps the exception of a lamda function.
+The code ***wasn't*** too complicated with perhaps the exception of a lamda function. After revising the code to output proper JSON syntax, I had to fix a trailing comma issue as there was a syntax issue when appending dividing commas between data entries on every line.
+
 In essence: this code starts by opening the data.csv file, creating a reader to peruse the file, and creating a for loop to index over each row. 
 On the first iteration of the loop, it determines the number of columns by counting the number of titles.
 it also stores the names of the column titles
 
-The for loop on line 28 trys to convert the last index of each row (the profit values) to a float value.
+The for loop on line 30 trys to convert the last index of each row (the profit values) to a float value.
 if successful, it increments the count for total # of rows and # of valid rows. 
 string representations of integers and non-integer numbers (decimals) should be converted to a float value.
 if unable to convert, it means theres a non-numerical value. thus, increment # of total rows by 1 
